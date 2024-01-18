@@ -1,0 +1,29 @@
+.FoodItem {
+  text-align: center;
+  font-size: 25px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  width: 200px;
+  height: 50px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding-left: 1.5em;
+  position: relative;
+}
+
+li::before {
+  content: "\f105";
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 1.5em;
+}

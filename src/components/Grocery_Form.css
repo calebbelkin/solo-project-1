@@ -1,10 +1,62 @@
-.intake_form {
+/* Grocery_form.css */
+
+#parent {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* vh stands for viewport height */
+  align-items: flex-start;
+  height: 100vh;
+}
+
+.grocery-form-container {
+  text-align: center;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-top: 10vh;
 }
 
 form {
-  width: 50%; /* adjust this value to control the form's width */
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
 }
+
+label {
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  flex: 1; /* Added flex style */
+  margin-left: 10px; /* Added margin for spacing */
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Style for the list items */
+div > div {
+  margin-top: 20px;
+}
+
+.paragraph {
+  text-align: center;
+}
+
+/* Add more styles as needed */

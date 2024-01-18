@@ -29,24 +29,26 @@ const Grocery_Form = () => {
   ));
 
   return (
-    <div className="intake_form">
-      <form onSubmit={handleClick}>
-        <label>
+    <div id="parent">
+      <div className="grocery-form-container">
+        <form onSubmit={handleClick}>
+          <label>
+            <input
+              type="text"
+              name="listItem"
+              value={listItem}
+              placeholder=""
+              onChange={(e) => updateListeItem(e.target.value)}
+            />
+          </label>
           <input
-            type="text"
-            name="listItem"
-            value={listItem}
-            placeholder=""
-            onChange={(e) => updateListeItem(e.target.value)}
+            type="submit"
+            value="Add Item"
+            onClick={() => updateIsClicked(isClicked)}
           />
-        </label>
-        <input
-          type="submit"
-          value="Add Item"
-          onClick={() => updateIsClicked(isClicked)}
-        />
-      </form>
-      {isClicked && newitems}
+        </form>
+      </div>
+      <div>{isClicked && newitems}</div>
     </div>
   );
 };
