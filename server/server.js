@@ -1,14 +1,22 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const router = require("./routes/router");
 
-// uncomment the below for proxy challenge
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// // statically serve everything in the build folder on the route '/build'
-// app.use('/build', express.static(path.join(__dirname, '../build')));
-// serve index.html on the route '/'
-app.get("/", (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, "./src/index.html"));
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+app.use("/itemAdded", router); // Adjust the route path
+
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
 });
-
-app.listen(3000); //listens on port 3000 -> http://localhost:3000/
