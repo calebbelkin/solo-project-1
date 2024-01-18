@@ -2,10 +2,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  //entry
   entry: "./src/index.js",
 
-  //output
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
@@ -18,14 +16,12 @@ module.exports = {
     compress: true,
     port: 8080,
     proxy: {
-      "/": "http://localhost:3000",
+      "/added": "http://localhost:3000/",
     },
   },
 
-  //mode
   mode: "development",
 
-  //modules
   module: {
     rules: [
       {
@@ -39,13 +35,8 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-        ],
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

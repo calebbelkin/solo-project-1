@@ -1,0 +1,12 @@
+/* .Title {
+  font-size: 60px;
+} */
+
+#groceryTitle {
+  text-align: center;
+  border: 3px solid green;
+}
+
+#listDescription {
+  text-align: center;
+}

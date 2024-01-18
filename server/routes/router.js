@@ -6,10 +6,15 @@
 
 const express = require("express");
 const router = express.Router();
+const itemsController = require("../controller/itemController");
 
-router.get("/itemAdded", (req, res) => {
-  const data = [0, 1, 2];
-  res.send(data);
+// router.get("/", (req, res) => {
+//   const data = [1, 2, 3, 4];
+//   res.send(data);
+// });
+
+router.post("/", itemsController.addItem, (req, res) => {
+  res.sendStatus(200); // Sending a success status
 });
 
 module.exports = router;

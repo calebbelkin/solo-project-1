@@ -1,29 +1,27 @@
 import React from "react";
 import { useState, useRef } from "react";
 import CurrListItem from "./listItems.jsx";
+import "./Grocery_form.css";
 
 const Grocery_Form = () => {
   const [listItem, updateListeItem] = useState("");
   const [isClicked, updateIsClicked] = useState(true);
   const [itemsArray, setItemsArray] = useState([]);
-  // const itemReset = useRef("");
 
   const handleClick = (e) => {
     e.preventDefault();
-
-    const currItem = { listItem };
-    // if (listItem == "") console.log("Your list is empty!");
-    console.log(currItem);
     setItemsArray((prevItems) => [...prevItems, listItem]);
 
     updateListeItem("");
-    // fetch("http://localhost:3000/", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ listItem }),
-    // });
+    fetch("/added", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ listItem }),
+    }).then(() => {
+      console.log("Item sent!");
+    });
   };
 
   const newitems = itemsArray.map((item) => (
@@ -31,12 +29,11 @@ const Grocery_Form = () => {
   ));
 
   return (
-    <div className="intake form">
+    <div className="intake_form">
       <form onSubmit={handleClick}>
         <label>
           <input
             type="text"
-            // ref={itemReset}
             name="listItem"
             value={listItem}
             placeholder=""
